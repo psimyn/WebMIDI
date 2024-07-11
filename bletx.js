@@ -8,8 +8,16 @@ var timer = setInterval(bleSend, 10);
 
 /** Function to run upon window load. */
 async function Init(){
-  kb=document.getElementById("keyboard");
-  kb.addEventListener("change",KeyIn);
+  let slider = document.getElementById("master-volume");
+  slider.addEventListener("input", SliderInput);
+}
+
+function SliderInput(e) {
+  let volume = e.target.value;
+  let midiMessage = [0xB0, 0x07, volume];
+  printToConsole('MIDI-message: ' + midiMessage);
+
+  readyBLEpacket.push(...midiMessage);
 }
 
 /** Function for connecting to MIDIBLE Device */
