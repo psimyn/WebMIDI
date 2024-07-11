@@ -124,7 +124,7 @@ function KeyIn(e){
 window.onload=function() {
   console.log('Service: ' + MIDI_SERVICE_UID);
   console.log('Char: ' + MIDI_IO_CHARACTERISTIC_UID);
-  document.getElementById('ikeys').style.display = 'none';
+  document.getElementById('master-volume').style.display = 'none';
   Init();
 
   let norurl;
@@ -139,7 +139,7 @@ window.onload=function() {
 }
 
 function bleConnected() {
-  document.getElementById('ikeys').style.display = 'block';
+  document.getElementById('master-volume').style.display = 'block';
   document.getElementById('hide').style.display = 'none';
   document.getElementById('ibutton').innerHTML = 'Disconnect';
   document.getElementById('midi-data').style.height = '45vh';
@@ -159,7 +159,7 @@ function bleSend(){
 }
 
 function bleDisconnect() {
-  document.getElementById('ikeys').style.display = 'none';
+  document.getElementById('master-volume').style.display = 'none';
   document.getElementById('hide').style.display = 'block';
   document.getElementById('ibutton').innerHTML = 'Connect';
   document.getElementById('midi-data').style.height = '10vh';
